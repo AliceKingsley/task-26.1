@@ -1,0 +1,23 @@
+.rating-stars {
+	display: inline-block;
+	font-size: 0;
+}
+
+.star {
+	padding: 0;
+	font-size: 20px;
+	line-height: 1;
+	color: darkgrey;
+}
+
+.rating-stars > .star::before {
+	content: '★';
+}
+
+.rating-stars > .star.active {
+	color: gold;
+}
+
+.star:hover {
+	color: yellow !important;
+}
