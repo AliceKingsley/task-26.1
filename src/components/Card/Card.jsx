@@ -14,6 +14,13 @@ export default class Card extends React.Component {
     render() {
         let hero = this.props.value;
 
+        let arrText = hero.more.split('\n');
+
+        let renderMore = [];
+        for (let i = 0; i < arrText.length; i++) {
+            renderMore.push(<React.Fragment key={i}><span>{arrText[i]}</span><br /><br /></React.Fragment>);          
+        }
+
         return (
             <div className="card">
                 <h3 className="card__header">{hero.person}</h3>
@@ -26,29 +33,9 @@ export default class Card extends React.Component {
 
                 <Text text="Суперсилы" param={hero.superpowers} />
 
-                {/* <p className="card__text">
-                    <span className="card__text_bold">Альтер эго:</span> {hero.alterego}
-                </p> */}
-
-                {/* <p className="card__text">
-                    <span className="card__text_bold">Род деятельности:</span> {hero.occupation}
-                </p> */}
-
-                {/* <p className="card__text">
-                    <span className="card__text_bold">Друзья:</span> {hero.friends}
-                </p> */}
-
-                {/* <p className="card__text">
-                    <span className="card__text_bold">Суперсилы:</span> {hero.superpowers}
-                </p> */}
-
                 <img className="card__img" alt={hero.person} src={hero.photo} />
 
-                {/* <p className="card__text">
-                    <span className="card__text_bold">Подробнее:</span> {hero.more}
-                </p> */}
-
-                <Text text="Подробнее" param={hero.more} />
+                <Text text="Подробнее" param={renderMore} />
 
                 <Rating />
             </div>
